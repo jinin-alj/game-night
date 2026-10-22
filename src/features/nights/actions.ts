@@ -2,7 +2,6 @@
 
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { getActiveGroup } from "@/features/groups/queries";
 import { idSchema } from "@/features/groups/schemas";
 import { getSessionContext } from "@/features/groups/session";
 import { getNextFriday, getTodayInMadrid } from "@/lib/dates";
@@ -11,7 +10,6 @@ import {
   getFirstFieldErrors,
   getFormText,
 } from "@/lib/forms";
-import { createClient, getCurrentUserId } from "@/lib/supabase/server";
 import type { NightFormState } from "./form-state";
 import { DEFAULT_NIGHT_MINUTES } from "./limits";
 import { getNight, listAttendeeIds } from "./queries";
@@ -31,11 +29,7 @@ export async function createNight(
   previousState: NightFormState,
   formData: FormData,
 ): Promise<NightFormState> {
-  const supabase = await createClient();
-  const userId = await getCurrentUserId(supabase);
-  if (!userId) {
-    redirect("/login");
-  }
+  const { supabase, activeGroup } = await getSessionContext();
 
   const defaultValues = {
     name: "",
@@ -56,7 +50,6 @@ export async function createNight(
     return { values, fieldErrors: getFirstFieldErrors(parsed.error) };
   }
 
-  const activeGroup = await getActiveGroup(supabase, userId);
   if (!activeGroup) {
     return {
       values,

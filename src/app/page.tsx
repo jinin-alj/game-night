@@ -11,7 +11,7 @@ const steps = [
 /** The public landing page: what the app does, who it is for, and one Sign up button. */
 export default function LandingPage() {
   return (
-    <main className="flex flex-1 flex-col">
+    <main id="main" tabIndex={-1} className="flex flex-1 flex-col">
       <div className="h-[260px] w-full overflow-hidden sm:h-[420px]">
         <DecorativeArt
           src="/art/panorama.svg"

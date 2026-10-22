@@ -11,7 +11,11 @@ type AuthPanelProps = {
 /** The cream panel that holds the sign-up and log-in forms. */
 export function AuthPanel({ title, children, footer }: AuthPanelProps) {
   return (
-    <main className="flex flex-1 flex-col items-center px-4 py-10 sm:py-16">
+    <main
+      id="main"
+      tabIndex={-1}
+      className="flex flex-1 flex-col items-center px-4 py-10 sm:py-16"
+    >
       <Link href="/" className={`mb-6 text-lg ${textLinkClassName}`}>
         Game Night Planner
       </Link>

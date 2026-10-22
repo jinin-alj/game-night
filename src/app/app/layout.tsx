@@ -20,7 +20,11 @@ export default async function AppLayout({ children }: LayoutProps<"/app">) {
     <>
       <Header activeGroup={activeGroup} myGroups={myGroups} />
       {/* Extra bottom padding on phones keeps content clear of the tab bar. */}
-      <main className="mx-auto w-full max-w-3xl flex-1 px-4 pt-8 pb-28 sm:pb-8">
+      <main
+        id="main"
+        tabIndex={-1}
+        className="mx-auto w-full max-w-3xl flex-1 px-4 pt-8 pb-28 sm:pb-8"
+      >
         {children}
       </main>
       <AppNav variant="bottom" />
