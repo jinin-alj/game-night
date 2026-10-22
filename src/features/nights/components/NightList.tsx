@@ -1,4 +1,6 @@
+import Link from "next/link";
 import { DecorativeArt } from "@/components/DecorativeArt";
+import { textLinkClassName } from "@/components/styles";
 import { formatDuration, formatNightDate } from "@/lib/dates";
 import { splitNights } from "../split";
 import type { NightSummary } from "../types";
@@ -55,7 +57,14 @@ function NightSection({ title, nights }: NightSectionProps) {
               className="h-14 w-14 shrink-0 rounded-lg"
             />
             <div className="min-w-0">
-              <p className="font-semibold break-words">{night.name}</p>
+              <p className="break-words">
+                <Link
+                  href={`/app/nights/${night.id}`}
+                  className={textLinkClassName}
+                >
+                  {night.name}
+                </Link>
+              </p>
               <p className="text-sm">
                 {formatNightDate(night.nightDate)} ·{" "}
                 {formatDuration(night.availableMinutes)}

@@ -60,3 +60,15 @@ export function formatDuration(minutes: number): string {
   }
   return `${hours} h ${leftoverMinutes} min`;
 }
+
+/** Counts the whole weeks from one YYYY-MM-DD date to a later one (never below 0). */
+export function weeksBetween(earlier: string, later: string): number {
+  const millisecondsPerDay = 24 * 60 * 60 * 1000;
+  const earlierTime = new Date(`${earlier}T00:00:00Z`).getTime();
+  const laterTime = new Date(`${later}T00:00:00Z`).getTime();
+  const days = Math.round((laterTime - earlierTime) / millisecondsPerDay);
+  if (days <= 0) {
+    return 0;
+  }
+  return Math.floor(days / 7);
+}

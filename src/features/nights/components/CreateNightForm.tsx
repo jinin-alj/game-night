@@ -2,29 +2,12 @@
 
 import { useActionState } from "react";
 import { FormError } from "@/components/FormError";
-import { SelectField, type SelectOption } from "@/components/SelectField";
+import { SelectField } from "@/components/SelectField";
 import { TextField } from "@/components/TextField";
 import { primaryButtonClassName } from "@/components/styles";
-import { formatDuration } from "@/lib/dates";
 import { createNight } from "../actions";
-import {
-  DEFAULT_NIGHT_MINUTES,
-  MAX_NIGHT_MINUTES,
-  MIN_NIGHT_MINUTES,
-  NIGHT_MINUTES_STEP,
-} from "../limits";
-
-const nightLengthOptions: SelectOption[] = [];
-for (
-  let minutes = MIN_NIGHT_MINUTES;
-  minutes <= MAX_NIGHT_MINUTES;
-  minutes += NIGHT_MINUTES_STEP
-) {
-  nightLengthOptions.push({
-    value: String(minutes),
-    label: formatDuration(minutes),
-  });
-}
+import { DEFAULT_NIGHT_MINUTES } from "../limits";
+import { nightLengthOptions } from "../night-length-options";
 
 type CreateNightFormProps = {
   defaultNightDate: string;

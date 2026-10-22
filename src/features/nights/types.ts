@@ -4,3 +4,12 @@ export type NightSummary = {
   nightDate: string;
   availableMinutes: number;
 };
+
+export type NightDetails = NightSummary & {
+  groupId: string;
+};
+
+export type Guest = {
+  id: string;
+  name: string;
+};
