@@ -1,5 +1,10 @@
 import type { ZodError } from "zod";
 
+export type ActionState = {
+  error?: string;
+  success?: string;
+};
+
 /** Reads a text field from submitted form data, or "" if it is missing. */
 export function getFormText(formData: FormData, fieldName: string): string {
   const value = formData.get(fieldName);
