@@ -1,0 +1,499 @@
+<svg xmlns="http://www.w3.org/2000/svg" id="zone-4" viewBox="1860 60 540 540" width="540" height="540" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <defs>
+    <linearGradient id="sky-gradient" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="2400" y2="0">
+      <stop offset="0" stop-color="#9CC6CC"/>
+      <stop offset="0.18" stop-color="#C6DED8"/>
+      <stop offset="0.34" stop-color="#F1D99A"/>
+      <stop offset="0.48" stop-color="#E3B34B"/>
+      <stop offset="0.6" stop-color="#EC9466"/>
+      <stop offset="0.7" stop-color="#E07A3F"/>
+      <stop offset="0.8" stop-color="#7E4F63"/>
+      <stop offset="0.9" stop-color="#1F2A44"/>
+      <stop offset="1" stop-color="#151D30"/>
+    </linearGradient>
+    <linearGradient id="horizon-glow" gradientUnits="userSpaceOnUse" x1="0" y1="120" x2="0" y2="560">
+      <stop offset="0" stop-color="#FBF5EA" stop-opacity="0"/>
+      <stop offset="1" stop-color="#FBF5EA" stop-opacity="0.4"/>
+    </linearGradient>
+    <linearGradient id="night-shade" gradientUnits="userSpaceOnUse" x1="1760" y1="0" x2="2200" y2="0">
+      <stop offset="0" stop-color="#151D30" stop-opacity="0"/>
+      <stop offset="1" stop-color="#151D30" stop-opacity="0.5"/>
+    </linearGradient>
+    <linearGradient id="lake-water" gradientUnits="userSpaceOnUse" x1="0" y1="560" x2="0" y2="710">
+      <stop offset="0" stop-color="#8FC0C1"/>
+      <stop offset="0.35" stop-color="#7FB3B5"/>
+      <stop offset="1" stop-color="#5B9498"/>
+    </linearGradient>
+    <linearGradient id="river-water" gradientUnits="userSpaceOnUse" x1="716" y1="0" x2="1340" y2="0">
+      <stop offset="0" stop-color="#7FB3B5"/>
+      <stop offset="0.4" stop-color="#A9C6B4"/>
+      <stop offset="0.75" stop-color="#9FB9AE" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#9FB9AE" stop-opacity="0"/>
+    </linearGradient>
+    <clipPath id="lake-clip">
+      <path d="M-20 560 L640 560 C690 566 700 610 730 646 L740 668 C660 668 600 672 560 690 C480 722 300 716 200 702 C120 692 40 702 -20 706 Z"/>
+    </clipPath>
+    <symbol id="pine" viewBox="0 0 20 44" preserveAspectRatio="none">
+      <path d="M10 0 L16 13 L13 13 L18 27 L14.5 27 L20 44 L0 44 L5.5 27 L2 27 L7 13 L4 13 Z"/>
+      <path fill="currentColor" d="M10 0 L10 44 L0 44 L5.5 27 L2 27 L7 13 L4 13 Z"/>
+    </symbol>
+    <symbol id="bush" viewBox="0 0 40 20" preserveAspectRatio="none">
+      <path d="M0 20 C0 10 6 4 14 6 C18 0 28 0 31 6 C37 5 40 12 40 20 Z"/>
+      <path fill="currentColor" d="M0 20 C0 14 4 10 9 11 C12 15 18 16 22 14 C26 17 34 17 40 14 L40 20 Z"/>
+    </symbol>
+    <symbol id="hex-field" viewBox="0 0 100 58" preserveAspectRatio="none">
+      <path fill="currentColor" d="M100 37 L50 50 L0 37 L0 45 L50 58 L100 45 Z"/>
+      <path d="M50 0 L100 13 L100 37 L50 50 L0 37 L0 13 Z"/>
+    </symbol>
+    <symbol id="card" viewBox="0 0 40 54" overflow="visible">
+      <rect x="4" y="4" width="34" height="48" rx="5" fill="#C49A6C"/>
+      <rect x="0" y="0" width="34" height="48" rx="5" fill="#F3E6CC"/>
+    </symbol>
+    <path id="pip-diamond" d="M0 -5 L4 0 L0 5 L-4 0 Z"/>
+    <filter id="grain-filter" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+  </defs>
+
+  <g id="sky">
+    <rect width="2400" height="900" fill="url(#sky-gradient)"/>
+    <rect width="2400" height="900" fill="url(#horizon-glow)"/>
+    <rect x="1760" width="640" height="900" fill="url(#night-shade)"/>
+
+    <g id="sky-zone-1">
+      <path fill="#FBF5EA" d="M92 156 C80 156 80 140 96 138 C96 122 116 112 134 120 C144 98 178 94 192 114 C206 102 238 106 240 128 C260 126 274 140 268 156 Z"/>
+      <path fill="#DCE8E3" d="M92 156 C100 146 116 146 126 150 C140 142 160 143 172 149 C188 141 208 142 222 149 C236 143 256 144 268 156 Z"/>
+      <path fill="#FBF5EA" d="M432 96 C424 96 424 86 434 84 C434 74 446 66 460 71 C468 56 492 54 502 67 C513 59 532 63 534 78 C548 77 557 88 553 96 Z"/>
+      <path fill="#DCE8E3" d="M432 96 C440 89 452 89 460 92 C472 86 488 86 498 91 C510 86 528 87 553 96 Z"/>
+    </g>
+
+    <g id="sky-zone-2">
+      <path fill="#FCEBC2" d="M770 186 C758 186 758 170 774 168 C774 152 794 142 812 150 C822 128 856 124 870 144 C884 132 916 136 918 158 C938 156 952 170 946 186 Z"/>
+      <path fill="#EDC27A" d="M770 186 C778 176 794 176 804 180 C818 172 838 173 850 179 C866 171 886 172 900 179 C914 173 934 174 946 186 Z"/>
+      <path fill="#FCEBC2" d="M1040 120 C1032 120 1032 110 1042 108 C1042 98 1054 90 1068 95 C1076 80 1100 78 1110 91 C1121 83 1140 87 1142 102 C1156 101 1165 112 1161 120 Z"/>
+      <path fill="#EDC27A" d="M1040 120 C1048 113 1060 113 1068 116 C1080 110 1096 110 1106 115 C1118 110 1136 111 1161 120 Z"/>
+    </g>
+
+    <g id="sky-zone-3">
+      <circle cx="1520" cy="500" r="120" fill="#F6C77A" opacity="0.14"/>
+      <circle cx="1520" cy="500" r="80" fill="#F6C77A" opacity="0.28"/>
+      <circle cx="1520" cy="500" r="48" fill="#F8D48C"/>
+      <path fill="#F2A57E" d="M1270 236 C1262 236 1262 226 1274 224 C1290 210 1330 208 1350 218 C1372 208 1416 212 1428 226 C1440 226 1446 236 1438 236 Z"/>
+      <path fill="#D9785A" d="M1270 236 C1300 230 1340 231 1360 234 C1390 229 1420 230 1438 236 Z"/>
+      <path fill="#F2A57E" d="M1660 196 C1654 196 1654 188 1664 187 C1678 176 1710 175 1726 183 C1744 175 1780 178 1790 189 C1800 189 1804 196 1798 196 Z"/>
+      <path fill="#D9785A" d="M1660 196 C1686 191 1716 192 1732 194 C1756 190 1782 191 1798 196 Z"/>
+    </g>
+
+    <g id="sky-zone-4" fill="#FBF5EA">
+      <circle cx="2190" cy="120" r="90" fill="#F3E6CC" opacity="0.05"/>
+      <circle cx="2190" cy="120" r="58" fill="#F3E6CC" opacity="0.09"/>
+      <circle cx="2190" cy="120" r="34" fill="#F3E6CC"/>
+      <path fill="#D9D6C4" d="M2190 86 A34 34 0 0 0 2190 154 A22 34 0 0 1 2190 86 Z"/>
+      <circle cx="2202" cy="108" r="5" fill="#E6DCC4"/>
+      <circle cx="2186" cy="134" r="3.5" fill="#E6DCC4"/>
+      <circle cx="2210" cy="132" r="2.5" fill="#E6DCC4"/>
+      <circle cx="1890" cy="60" r="1" opacity="0.5"/>
+      <circle cx="1925" cy="140" r="1.2" opacity="0.6"/>
+      <circle cx="1960" cy="40" r="1.6" opacity="0.7"/>
+      <circle cx="1990" cy="210" r="1"/>
+      <circle cx="2020" cy="100" r="1.4"/>
+      <circle cx="2045" cy="170" r="1"/>
+      <circle cx="2070" cy="30" r="2"/>
+      <circle cx="2100" cy="120" r="1.1"/>
+      <circle cx="2120" cy="200" r="1.6"/>
+      <circle cx="2135" cy="56" r="1"/>
+      <circle cx="2240" cy="40" r="1.4"/>
+      <circle cx="2262" cy="186" r="1"/>
+      <circle cx="2290" cy="90" r="2"/>
+      <circle cx="2320" cy="150" r="1.2"/>
+      <circle cx="2350" cy="40" r="1.6"/>
+      <circle cx="2380" cy="110" r="1"/>
+      <circle cx="2395" cy="210" r="1.4"/>
+      <circle cx="2230" cy="262" r="1"/>
+      <circle cx="2330" cy="300" r="1.2"/>
+      <circle cx="1950" cy="290" r="1" opacity="0.7"/>
+      <circle cx="2010" cy="420" r="1.1"/>
+      <circle cx="2160" cy="470" r="1"/>
+      <circle cx="2400" cy="440" r="1.2"/>
+      <circle cx="2250" cy="480" r="1"/>
+      <circle cx="1910" cy="380" r="1" opacity="0.6"/>
+      <circle cx="2392" cy="320" r="1.6"/>
+      <circle cx="2150" cy="330" r="1"/>
+      <circle cx="1980" cy="500" r="0.9" opacity="0.7"/>
+      <circle cx="2310" cy="510" r="1"/>
+    </g>
+  </g>
+
+  <g id="far">
+    <g id="far-zone-1">
+      <path fill="#B4CDD3" d="M-20 560 L-20 380 L40 340 L90 365 L150 300 L210 350 L260 330 L330 360 L380 320 L450 350 L520 310 L600 345 L680 330 L720 352 L780 380 L840 430 L900 520 L940 560 Z"/>
+      <path fill="#9DB9C3" d="M40 340 L-20 380 L-20 560 L22 560 L34 430 Z"/>
+      <path fill="#9DB9C3" d="M260 330 L210 350 L200 560 L250 560 L256 420 Z"/>
+      <path fill="#9DB9C3" d="M520 310 L450 350 L440 560 L508 560 L516 400 Z"/>
+
+      <path fill="#93AFBE" d="M170 200 L230 280 L290 350 L360 430 L420 500 L460 560 L-60 560 L-20 470 L60 380 L120 300 Z"/>
+      <path fill="#728FA3" d="M170 200 L120 300 L60 380 L-20 470 L-60 560 L110 560 L128 470 L150 370 L162 280 Z"/>
+      <path fill="#F7F2E8" d="M170 200 L214 266 L203 273 L193 263 L183 283 L164 268 Z"/>
+      <path fill="#C5D6DD" d="M170 200 L164 268 L155 288 L144 276 L132 294 L122 296 Z"/>
+
+      <path fill="#93AFBE" d="M610 290 L680 350 L740 410 L780 560 L420 560 L450 470 L500 400 L560 340 Z"/>
+      <path fill="#728FA3" d="M610 290 L560 340 L500 400 L450 470 L420 560 L575 560 L590 430 L604 350 Z"/>
+      <path fill="#F7F2E8" d="M610 290 L638 316 L628 320 L620 312 L612 324 L606 318 Z"/>
+      <path fill="#C5D6DD" d="M610 290 L606 318 L598 330 L588 320 L578 322 Z"/>
+
+      <path fill="#9BB6C3" d="M400 250 L450 310 L510 380 L560 440 L620 520 L650 560 L190 560 L210 500 L250 430 L300 370 L350 310 Z"/>
+      <path fill="#7A97A9" d="M400 250 L350 310 L300 370 L250 430 L210 500 L190 560 L360 560 L372 460 L388 380 L398 310 Z"/>
+      <path fill="#F7F2E8" d="M400 250 L442 300 L432 304 L422 296 L412 310 L398 302 Z"/>
+      <path fill="#C5D6DD" d="M400 250 L398 302 L390 316 L379 304 L366 312 L358 300 Z"/>
+    </g>
+
+    <g id="far-zone-2">
+      <path fill="#E6CFA6" d="M690 900 L690 560 C730 528 780 508 840 502 C900 496 930 480 990 474 C1060 466 1110 490 1170 484 C1240 478 1300 470 1380 482 L1380 900 Z"/>
+      <path fill="#D6B98C" d="M690 900 L700 560 C760 542 820 534 900 538 C1000 542 1100 530 1200 534 C1280 536 1340 530 1380 532 L1380 900 Z"/>
+    </g>
+
+    <g id="far-haze">
+      <path fill="#DCE8E3" opacity="0.25" d="M-20 560 L-20 470 C40 456 90 476 150 466 C220 454 270 480 340 470 C410 460 470 482 540 468 C610 456 660 476 720 462 C780 452 840 470 900 500 C930 516 950 540 960 560 Z"/>
+      <path fill="#DCE8E3" opacity="0.3" d="M-20 560 L-20 496 C50 486 110 500 180 492 C260 484 320 502 400 494 C480 486 540 502 620 492 C660 488 690 494 720 490 C800 484 860 500 900 530 L920 560 Z"/>
+    </g>
+
+    <g id="far-zone-3">
+      <path fill="#EBB892" d="M1180 900 L1180 560 C1240 540 1300 520 1380 522 C1460 524 1500 540 1560 536 C1640 530 1700 516 1780 520 C1840 523 1880 540 1940 560 L1940 900 Z"/>
+      <path fill="#DDA27C" d="M1180 900 L1190 572 C1260 556 1320 548 1400 552 C1480 556 1540 560 1600 556 C1680 550 1760 546 1840 556 C1880 562 1910 570 1940 580 L1940 900 Z"/>
+      <path fill="#D0866A" d="M1236 620 C1256 576 1272 530 1288 484 L1294 464 L1402 464 L1410 486 C1422 530 1438 576 1456 620 Z"/>
+      <path fill="#B76E57" d="M1236 620 C1256 576 1272 530 1288 484 L1294 464 L1318 464 L1312 504 C1308 544 1306 584 1310 620 Z"/>
+      <path fill="#C27A5F" d="M1286 494 L1412 494 L1415 503 L1283 503 Z"/>
+      <path fill="#D0866A" d="M1618 620 C1634 578 1648 536 1662 500 L1668 484 L1762 484 L1770 504 C1782 540 1796 580 1810 620 Z"/>
+      <path fill="#B76E57" d="M1762 484 L1770 504 C1782 540 1796 580 1810 620 L1774 620 C1770 580 1764 536 1746 484 Z"/>
+      <path fill="#C27A5F" d="M1660 512 L1772 512 L1775 520 L1657 520 Z"/>
+      <path fill="#FBF5EA" opacity="0.12" d="M1240 548 C1300 540 1360 554 1420 546 C1480 538 1540 552 1600 544 C1660 536 1720 550 1800 542 L1800 548 C1720 556 1660 542 1600 550 C1540 558 1480 544 1420 552 C1360 560 1300 546 1240 554 Z"/>
+      <path fill="#FBF5EA" opacity="0.12" d="M1280 568 C1340 560 1400 574 1460 566 C1520 558 1580 572 1640 564 C1700 556 1760 570 1820 562 L1820 567 C1760 575 1700 561 1640 569 C1580 577 1520 563 1460 571 C1400 579 1340 565 1280 573 Z"/>
+      <path fill="#FBF5EA" opacity="0.1" d="M1320 588 C1380 582 1440 594 1500 588 C1560 582 1620 594 1680 588 L1680 592 C1620 598 1560 586 1500 592 C1440 598 1380 586 1320 592 Z"/>
+    </g>
+
+    <g id="far-zone-4">
+      <path fill="#6E4E5E" d="M1680 900 L1680 560 C1740 530 1800 512 1880 510 C1940 508 1990 520 2040 540 L2060 900 Z"/>
+      <path fill="#5A3F50" d="M1680 900 L1690 572 C1760 556 1840 550 1920 552 C1980 554 2020 562 2050 576 L2060 900 Z"/>
+      <path fill="#3A4766" d="M1880 900 L1880 560 C1940 520 2000 500 2080 498 C2160 496 2200 470 2270 468 C2340 466 2380 482 2420 478 L2420 900 Z"/>
+      <path fill="#2F3A57" d="M1880 900 L1890 574 C1980 556 2080 548 2180 552 C2280 556 2360 546 2420 548 L2420 900 Z"/>
+    </g>
+  </g>
+
+  <g id="mid">
+    <g id="mid-zone-1">
+      <g id="shore-zone-1">
+        <path fill="#7FA596" d="M-20 562 L-20 520 C60 498 120 502 190 515 C260 528 320 506 400 502 C470 498 540 514 600 518 C650 522 690 512 730 516 C770 522 800 540 830 556 L840 566 L-20 566 Z"/>
+        <path fill="#618A7D" d="M-20 566 L-20 545 C80 535 160 548 260 545 C360 542 460 550 560 546 C620 544 680 548 730 548 C770 549 800 556 820 566 Z"/>
+        <g fill="#5C8873" color="#456E5E">
+          <use href="#pine" x="0" y="492" width="11" height="26"/>
+          <use href="#pine" x="12" y="484" width="13" height="32"/>
+          <use href="#pine" x="26" y="490" width="11" height="26"/>
+          <use href="#pine" x="38" y="482" width="14" height="34"/>
+          <use href="#pine" x="54" y="490" width="11" height="26"/>
+          <use href="#pine" x="66" y="486" width="12" height="30"/>
+          <use href="#pine" x="80" y="494" width="10" height="24"/>
+          <use href="#pine" x="140" y="494" width="11" height="26"/>
+          <use href="#pine" x="152" y="486" width="13" height="32"/>
+          <use href="#pine" x="166" y="492" width="11" height="28"/>
+          <use href="#pine" x="178" y="486" width="14" height="34"/>
+          <use href="#pine" x="194" y="494" width="11" height="28"/>
+          <use href="#pine" x="206" y="498" width="10" height="24"/>
+          <use href="#pine" x="292" y="488" width="11" height="28"/>
+          <use href="#pine" x="304" y="480" width="14" height="36"/>
+          <use href="#pine" x="320" y="486" width="12" height="30"/>
+          <use href="#pine" x="334" y="480" width="13" height="34"/>
+          <use href="#pine" x="348" y="486" width="11" height="28"/>
+          <use href="#pine" x="360" y="490" width="10" height="24"/>
+          <use href="#pine" x="460" y="486" width="12" height="30"/>
+          <use href="#pine" x="474" y="482" width="13" height="34"/>
+          <use href="#pine" x="488" y="488" width="11" height="28"/>
+          <use href="#pine" x="500" y="484" width="14" height="34"/>
+          <use href="#pine" x="516" y="492" width="11" height="26"/>
+          <use href="#pine" x="598" y="490" width="11" height="28"/>
+          <use href="#pine" x="610" y="484" width="13" height="34"/>
+          <use href="#pine" x="624" y="490" width="11" height="28"/>
+          <use href="#pine" x="680" y="486" width="12" height="30"/>
+          <use href="#pine" x="694" y="492" width="11" height="26"/>
+          <use href="#pine" x="706" y="490" width="12" height="28"/>
+          <use href="#pine" x="740" y="504" width="10" height="22"/>
+          <use href="#pine" x="752" y="508" width="9" height="20"/>
+        </g>
+      </g>
+    </g>
+
+    <g id="mid-zone-2">
+      <path fill="#C9B77A" d="M600 900 L600 560 C700 554 800 550 900 552 C1000 554 1100 548 1200 552 C1260 554 1300 562 1330 580 C1350 594 1360 616 1370 640 L1370 900 Z"/>
+      <g fill="#EBC778" color="#D3A957">
+        <use href="#hex-field" x="746" y="572" width="51" height="31"/>
+        <use href="#hex-field" x="908" y="572" width="51" height="31"/>
+        <use href="#hex-field" x="1124" y="572" width="51" height="31"/>
+        <use href="#hex-field" x="1232" y="572" width="51" height="31"/>
+        <use href="#hex-field" x="814" y="592" width="61" height="37"/>
+        <use href="#hex-field" x="1006" y="592" width="61" height="37"/>
+        <use href="#hex-field" x="1198" y="592" width="61" height="37"/>
+      </g>
+      <g fill="#A9C0A0" color="#8AA585">
+        <use href="#hex-field" x="800" y="572" width="51" height="31"/>
+        <use href="#hex-field" x="1016" y="572" width="51" height="31"/>
+        <use href="#hex-field" x="1178" y="572" width="51" height="31"/>
+        <use href="#hex-field" x="750" y="592" width="61" height="37"/>
+        <use href="#hex-field" x="942" y="592" width="61" height="37"/>
+        <use href="#hex-field" x="1134" y="592" width="61" height="37"/>
+      </g>
+      <g fill="#D4876C" color="#BB6E55">
+        <use href="#hex-field" x="854" y="572" width="51" height="31"/>
+        <use href="#hex-field" x="962" y="572" width="51" height="31"/>
+        <use href="#hex-field" x="1070" y="572" width="51" height="31"/>
+        <use href="#hex-field" x="878" y="592" width="61" height="37"/>
+        <use href="#hex-field" x="1070" y="592" width="61" height="37"/>
+      </g>
+      <g fill="#E3B34B" color="#C4943A">
+        <use href="#hex-field" x="750" y="616" width="75" height="45"/>
+        <use href="#hex-field" x="984" y="616" width="75" height="45"/>
+        <use href="#hex-field" x="1140" y="616" width="75" height="45"/>
+        <use href="#hex-field" x="790" y="645" width="93" height="56"/>
+        <use href="#hex-field" x="1078" y="645" width="93" height="56"/>
+        <use href="#hex-field" x="860" y="680" width="115" height="68"/>
+        <use href="#hex-field" x="1214" y="680" width="115" height="68"/>
+      </g>
+      <g fill="#8FAE8B" color="#6F8F6E">
+        <use href="#hex-field" x="828" y="616" width="75" height="45"/>
+        <use href="#hex-field" x="1062" y="616" width="75" height="45"/>
+        <use href="#hex-field" x="1218" y="616" width="75" height="45"/>
+        <use href="#hex-field" x="982" y="645" width="93" height="56"/>
+        <use href="#hex-field" x="1174" y="645" width="93" height="56"/>
+        <use href="#hex-field" x="742" y="680" width="115" height="68"/>
+        <use href="#hex-field" x="1096" y="680" width="115" height="68"/>
+      </g>
+      <g fill="#C9694D" color="#A6533C">
+        <use href="#hex-field" x="906" y="616" width="75" height="45"/>
+        <use href="#hex-field" x="886" y="645" width="93" height="56"/>
+        <use href="#hex-field" x="978" y="680" width="115" height="68"/>
+      </g>
+      <g fill="#3B6355" color="#2F5D50">
+        <use href="#bush" x="800" y="606" width="16" height="7"/>
+        <use href="#bush" x="934" y="606" width="16" height="7"/>
+        <use href="#bush" x="1046" y="607" width="14" height="6"/>
+        <use href="#bush" x="1164" y="606" width="16" height="7"/>
+        <use href="#bush" x="822" y="636" width="20" height="9"/>
+        <use href="#bush" x="976" y="637" width="18" height="8"/>
+        <use href="#bush" x="1132" y="636" width="20" height="9"/>
+        <use href="#bush" x="880" y="670" width="26" height="11"/>
+        <use href="#bush" x="1070" y="671" width="24" height="10"/>
+        <use href="#bush" x="1166" y="670" width="26" height="11"/>
+      </g>
+    </g>
+
+    <g id="lake-zone-1">
+      <path fill="url(#lake-water)" d="M-20 560 L640 560 C690 566 700 610 730 646 L740 668 C660 668 600 672 560 690 C480 722 300 716 200 702 C120 692 40 702 -20 706 Z"/>
+      <g clip-path="url(#lake-clip)" opacity="0.28">
+        <use href="#far-zone-1" transform="matrix(1 0 0 -1 0 1122)"/>
+        <use href="#shore-zone-1" transform="matrix(1 0 0 -1 0 1122)"/>
+      </g>
+      <g fill="#FBF5EA" opacity="0.45">
+        <rect x="40" y="588" width="120" height="2.5" rx="1.25"/>
+        <rect x="260" y="596" width="180" height="2.5" rx="1.25"/>
+        <rect x="520" y="604" width="90" height="2" rx="1"/>
+        <rect x="150" y="624" width="70" height="2" rx="1"/>
+        <rect x="330" y="636" width="140" height="3" rx="1.5"/>
+        <rect x="600" y="656" width="90" height="2" rx="1"/>
+        <rect x="230" y="664" width="110" height="3" rx="1.5"/>
+        <rect x="380" y="688" width="120" height="3" rx="1.5"/>
+      </g>
+    </g>
+
+    <path id="river" fill="url(#river-water)" d="M716 646 C750 664 790 676 830 680 C880 684 920 672 960 664 C1000 656 1040 646 1080 642 C1140 636 1200 634 1260 632 C1300 631 1320 631 1340 631 L1340 634 C1320 634 1300 635 1262 638 C1200 641 1142 645 1084 652 C1044 658 1004 670 964 680 C924 690 882 700 830 696 C786 694 744 680 730 668 Z"/>
+    <g fill="#F1D99A" opacity="0.7">
+      <rect x="850" y="685" width="34" height="1.6" rx="0.8"/>
+      <rect x="990" y="663" width="26" height="1.4" rx="0.7"/>
+      <rect x="1140" y="641" width="22" height="1.2" rx="0.6"/>
+    </g>
+
+    <g id="mid-zone-3">
+      <path fill="#E2A273" d="M1180 900 L1180 640 C1260 622 1340 612 1420 616 C1500 620 1560 630 1620 624 C1700 616 1780 606 1860 616 C1900 622 1930 634 1960 650 L1960 900 Z"/>
+      <path fill="#C47B52" d="M1180 900 L1180 664 C1260 650 1340 644 1420 648 C1500 652 1560 660 1620 656 C1700 650 1780 642 1860 650 C1900 656 1930 664 1960 676 L1960 900 Z"/>
+
+      <path fill="#B5452F" d="M1810 900 L1820 640 C1830 600 1840 570 1852 546 L1858 530 L1950 530 L1958 548 C1970 580 1984 620 1996 660 L2000 900 Z"/>
+      <path fill="#8E3424" d="M1940 530 L1950 530 L1958 548 C1970 580 1984 620 1996 660 L2000 900 L1956 900 C1952 760 1950 640 1940 530 Z"/>
+      <path fill="#C9694D" d="M1856 532 L1952 532 L1955 540 L1853 540 Z"/>
+
+      <path fill="#BE6E47" d="M1100 900 L1100 714 C1170 680 1250 624 1340 600 C1400 612 1470 646 1560 700 C1600 724 1630 760 1650 800 L1650 900 Z"/>
+      <path fill="#EBAA6C" d="M1340 600 C1400 612 1470 646 1560 700 C1600 724 1630 760 1650 800 C1600 770 1520 730 1440 700 C1390 680 1356 640 1340 600 Z"/>
+      <path fill="#EBAA6C" d="M1100 714 C1170 680 1250 624 1340 600 C1270 634 1190 690 1100 732 Z"/>
+
+      <path fill="#B5643F" d="M1520 900 C1540 830 1570 780 1600 740 C1660 680 1720 620 1780 590 C1840 610 1910 650 1980 690 L1990 900 Z"/>
+      <path fill="#EBAA6C" d="M1780 590 C1720 620 1660 680 1600 740 C1650 712 1710 668 1752 632 C1768 618 1776 604 1780 590 Z"/>
+      <path fill="#E2A273" d="M1780 590 C1840 610 1910 650 1980 690 L1980 702 C1910 664 1840 626 1780 602 Z"/>
+
+      <g fill="#C97A4E">
+        <path d="M1150 760 C1200 744 1250 730 1300 724 L1300 727 C1250 734 1200 748 1151 764 Z"/>
+        <path d="M1170 800 C1220 786 1270 774 1320 770 L1320 773 C1270 778 1220 790 1171 804 Z"/>
+        <path d="M1440 730 C1490 742 1540 760 1590 786 L1588 789 C1538 764 1488 746 1438 734 Z"/>
+        <path d="M1640 790 C1690 770 1740 756 1800 748 L1800 751 C1740 760 1690 774 1641 794 Z"/>
+        <path d="M1660 830 C1710 812 1770 800 1830 794 L1830 797 C1770 804 1710 816 1661 834 Z"/>
+      </g>
+    </g>
+
+    <g id="mid-zone-4">
+      <path fill="#283350" d="M1800 900 C1830 800 1880 700 1940 650 C1990 612 2040 604 2100 600 C2180 594 2250 612 2320 602 C2370 596 2400 590 2420 588 L2420 900 Z"/>
+      <path fill="#1F2944" d="M1840 900 C1880 820 1960 760 2060 742 C2160 726 2280 736 2420 726 L2420 900 Z"/>
+      <g fill="#1F2944" color="#182035">
+        <use href="#pine" x="1990" y="584" width="14" height="32"/>
+        <use href="#pine" x="2004" y="590" width="12" height="26"/>
+        <use href="#pine" x="2210" y="582" width="14" height="32"/>
+        <use href="#pine" x="2226" y="588" width="12" height="28"/>
+        <use href="#pine" x="2240" y="592" width="11" height="24"/>
+      </g>
+      <g id="cards">
+        <polyline points="2010,330 2095,245 2205,330 2300,240 2360,380 2205,330" fill="none" stroke="#BFD8D2" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="2 6" stroke-linecap="round"/>
+        <polyline points="2010,330 2110,430 2205,330" fill="none" stroke="#BFD8D2" stroke-opacity="0.35" stroke-width="1.5" stroke-dasharray="2 6" stroke-linecap="round"/>
+        <g transform="translate(2010 330) rotate(-12)">
+          <use href="#card" x="-17" y="-24" width="40" height="54"/>
+          <use href="#pip-diamond" x="0" y="-12" fill="#B5452F"/>
+          <use href="#pip-diamond" x="0" y="0" fill="#B5452F"/>
+          <use href="#pip-diamond" x="0" y="12" fill="#B5452F"/>
+        </g>
+        <g transform="translate(2095 245) rotate(9)">
+          <use href="#card" x="-17" y="-24" width="40" height="54"/>
+          <circle cx="0" cy="-10" r="3.2" fill="#1F2A44"/>
+          <circle cx="0" cy="10" r="3.2" fill="#1F2A44"/>
+        </g>
+        <g transform="translate(2205 330) rotate(-5)">
+          <use href="#card" x="-17" y="-24" width="40" height="54"/>
+          <circle cx="-7" cy="-12" r="3" fill="#1F2A44"/>
+          <circle cx="7" cy="-12" r="3" fill="#1F2A44"/>
+          <circle cx="0" cy="0" r="3" fill="#1F2A44"/>
+          <circle cx="-7" cy="12" r="3" fill="#1F2A44"/>
+          <circle cx="7" cy="12" r="3" fill="#1F2A44"/>
+        </g>
+        <g transform="translate(2300 240) rotate(13)">
+          <use href="#card" x="-17" y="-24" width="40" height="54"/>
+          <use href="#pip-diamond" x="-7" y="-10" fill="#B5452F"/>
+          <use href="#pip-diamond" x="7" y="-10" fill="#B5452F"/>
+          <use href="#pip-diamond" x="-7" y="10" fill="#B5452F"/>
+          <use href="#pip-diamond" x="7" y="10" fill="#B5452F"/>
+        </g>
+        <g transform="translate(2360 380) rotate(-9)">
+          <use href="#card" x="-17" y="-24" width="40" height="54"/>
+          <path d="M0 -9 L7 0 L0 9 L-7 0 Z" fill="#1F2A44"/>
+        </g>
+        <g transform="translate(2110 430) rotate(5)">
+          <use href="#card" x="-17" y="-24" width="40" height="54"/>
+          <circle cx="-7" cy="-12" r="2.8" fill="#B5452F"/>
+          <circle cx="7" cy="-12" r="2.8" fill="#B5452F"/>
+          <circle cx="-7" cy="0" r="2.8" fill="#B5452F"/>
+          <circle cx="7" cy="0" r="2.8" fill="#B5452F"/>
+          <circle cx="-7" cy="12" r="2.8" fill="#B5452F"/>
+          <circle cx="7" cy="12" r="2.8" fill="#B5452F"/>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <g id="near">
+    <g id="near-zone-2">
+      <path fill="#A8AE76" d="M700 900 L700 740 C780 724 860 716 940 722 C1020 728 1100 712 1180 716 C1260 720 1320 736 1360 760 L1360 900 Z"/>
+      <path fill="#8C9260" d="M700 900 L700 800 C800 790 900 796 1000 806 C1100 816 1220 800 1360 810 L1360 900 Z"/>
+      <g fill="#2F5D50" color="#244A3F">
+        <use href="#bush" x="930" y="686" width="60" height="40"/>
+        <use href="#bush" x="984" y="700" width="40" height="28"/>
+        <use href="#bush" x="1180" y="680" width="64" height="44"/>
+        <use href="#bush" x="1238" y="698" width="40" height="28"/>
+        <use href="#bush" x="1060" y="702" width="36" height="22"/>
+      </g>
+    </g>
+
+    <g id="near-zone-1">
+      <path fill="#8FAE8B" d="M-20 900 L-20 703 C40 698 120 688 200 698 C300 713 480 718 560 688 C600 670 660 666 720 666 C744 666 758 676 768 694 L790 900 Z"/>
+      <path fill="#71917A" d="M-20 703 C40 698 120 688 200 698 C300 713 480 718 560 688 C600 670 660 666 720 666 C744 666 758 676 768 694 L770 702 C758 684 744 674 720 674 C664 674 606 678 566 696 C484 728 300 722 200 708 C120 698 40 708 -20 713 Z"/>
+
+      <path fill="#8FAE8B" d="M-20 900 L-20 612 C20 598 70 602 110 620 C150 638 180 668 200 706 C222 750 250 820 280 900 Z"/>
+      <path fill="#71917A" d="M-20 612 C0 605 18 603 34 605 C20 650 22 740 40 820 C46 850 52 880 56 900 L-20 900 Z"/>
+
+      <path fill="#8FAE8B" d="M330 900 C360 820 420 750 470 715 C510 688 550 678 590 678 C660 678 720 688 770 708 C810 726 830 760 840 800 C846 830 848 870 850 900 Z"/>
+      <path fill="#71917A" d="M330 900 C360 820 420 750 470 715 C500 696 520 688 540 684 C500 710 460 760 440 820 C432 850 430 880 432 900 Z"/>
+
+      <g fill="#71917A" color="#5E7E67">
+        <use href="#bush" x="200" y="690" width="44" height="20"/>
+        <use href="#bush" x="250" y="700" width="34" height="16"/>
+        <use href="#bush" x="404" y="704" width="40" height="18"/>
+        <use href="#bush" x="520" y="668" width="36" height="16"/>
+        <use href="#bush" x="218" y="782" width="50" height="24"/>
+        <use href="#bush" x="262" y="796" width="34" height="16"/>
+        <use href="#bush" x="560" y="752" width="56" height="26"/>
+        <use href="#bush" x="612" y="768" width="40" height="18"/>
+        <use href="#bush" x="470" y="790" width="46" height="22"/>
+      </g>
+
+      <g fill="#2F5D50" color="#244A3F">
+        <use href="#pine" x="40" y="528" width="40" height="92"/>
+        <use href="#pine" x="74" y="552" width="34" height="76"/>
+        <use href="#pine" x="104" y="546" width="38" height="88"/>
+        <use href="#pine" x="138" y="580" width="30" height="66"/>
+        <use href="#pine" x="164" y="606" width="24" height="54"/>
+        <use href="#pine" x="560" y="602" width="34" height="80"/>
+        <use href="#pine" x="590" y="584" width="40" height="96"/>
+        <use href="#pine" x="626" y="608" width="32" height="76"/>
+        <use href="#pine" x="654" y="596" width="38" height="90"/>
+        <use href="#pine" x="688" y="614" width="30" height="72"/>
+      </g>
+    </g>
+
+    <g id="near-zone-3">
+      <path fill="#DE9558" d="M1240 900 C1280 820 1340 780 1420 770 C1520 758 1600 776 1680 790 C1760 804 1840 800 1900 790 C1940 784 1970 786 2000 800 L2000 900 Z"/>
+      <path fill="#B0603C" d="M1240 900 C1280 820 1340 780 1420 770 C1380 790 1350 830 1340 900 Z"/>
+      <path fill="#B0603C" d="M1300 900 C1400 870 1520 858 1640 862 C1760 866 1880 858 2000 850 L2000 900 Z"/>
+      <g fill="#C77E4C">
+        <path d="M1440 792 C1500 786 1560 790 1620 802 L1619 805 C1560 794 1500 790 1441 795 Z"/>
+        <path d="M1460 818 C1530 812 1600 818 1680 830 L1679 833 C1600 822 1530 816 1461 821 Z"/>
+        <path d="M1700 812 C1760 818 1820 818 1880 812 L1880 815 C1820 821 1760 821 1700 815 Z"/>
+      </g>
+    </g>
+
+    <g id="near-zone-4">
+      <path fill="#1A2236" d="M1880 900 C1900 840 1940 790 2000 772 C2080 750 2160 760 2240 748 C2320 736 2380 740 2420 736 L2420 900 Z"/>
+      <path fill="#4A5A80" d="M1960 786 C1975 779 1988 775 2000 772 C2080 750 2160 760 2240 748 C2320 736 2380 740 2420 736 L2420 741 C2380 745 2320 741 2240 753 C2160 765 2080 755 2000 777 C1988 780 1975 784 1960 788 Z"/>
+      <path fill="#121929" d="M1900 900 C1960 860 2060 840 2160 842 C2260 844 2340 836 2420 830 L2420 900 Z"/>
+      <g fill="#121929" color="#0E1422">
+        <use href="#pine" x="2300" y="676" width="30" height="72"/>
+        <use href="#pine" x="2326" y="690" width="26" height="58"/>
+        <use href="#pine" x="2350" y="666" width="34" height="80"/>
+      </g>
+    </g>
+  </g>
+
+  <g id="foreground">
+    <path fill="#1F3F36" d="M-20 900 L-20 830 C60 815 140 825 220 840 C300 855 380 850 460 838 C540 826 620 830 720 845 C780 856 820 878 840 900 Z"/>
+    <path fill="#3E4A2C" d="M780 900 C820 870 880 852 960 848 C1060 844 1160 860 1260 856 C1340 853 1400 860 1460 880 L1480 900 Z"/>
+    <path fill="#5E2A1F" d="M1420 900 C1460 870 1520 856 1600 854 C1700 852 1800 866 1880 870 C1940 873 1980 884 2010 900 Z"/>
+    <path fill="#0E1422" d="M1950 900 C1990 870 2050 852 2140 850 C2240 848 2340 856 2420 852 L2420 900 Z"/>
+
+    <g id="trail">
+      <path fill="#C49A6C" d="M262 900 C258 862 272 820 306 788 C340 760 380 748 400 745 C450 734 500 722 520 718 C600 708 660 704 720 704 C780 704 830 716 880 734 C960 760 1060 772 1160 778 C1240 783 1300 788 1340 790 L1340 797 C1300 795 1240 790 1160 786 C1058 780 958 768 878 742 C828 724 778 711 720 711 C660 711 600 716 522 726 C500 729 450 740 402 759 C370 770 345 782 334 794 C312 818 310 860 338 900 Z"/>
+      <path fill="#A47E55" d="M338 900 C310 860 312 818 334 794 C345 782 370 770 402 759 C450 740 500 729 522 726 C600 716 660 711 720 711 C778 711 828 724 878 742 C958 768 1058 780 1160 786 C1240 790 1300 795 1340 797 L1340 800 C1300 798 1240 793 1160 789 C1056 783 956 771 876 745 C826 727 776 714 720 714 C660 714 602 719 524 729 C502 732 454 744 408 763 C378 775 354 788 344 800 C326 822 326 862 354 900 Z"/>
+      <path fill="#F2C58E" d="M1320 789 C1400 800 1460 812 1540 810 C1620 808 1680 798 1760 804 C1820 808 1870 816 1920 818 L1920 826 C1870 824 1820 816 1760 812 C1680 806 1620 816 1540 818 C1460 820 1400 808 1320 797 Z"/>
+      <path fill="#D69A62" d="M1320 797 C1400 808 1460 820 1540 818 C1620 816 1680 806 1760 812 C1820 816 1870 824 1920 826 L1920 829 C1870 827 1820 819 1760 815 C1680 809 1620 819 1540 821 C1460 823 1400 811 1320 800 Z"/>
+      <path fill="#5A607A" d="M1900 818 C2000 816 2100 806 2200 798 C2300 790 2360 788 2420 786 L2420 793 C2360 795 2300 797 2200 805 C2100 813 2000 823 1900 826 Z"/>
+      <path fill="#454B63" d="M1900 826 C2000 823 2100 813 2200 805 C2300 797 2360 795 2420 793 L2420 796 C2360 798 2300 800 2200 808 C2100 816 2000 826 1900 829 Z"/>
+    </g>
+
+    <g fill="#3E4A2C" color="#2F3A20">
+      <use href="#bush" x="1294" y="770" width="64" height="30"/>
+    </g>
+    <path fill="#5A3F50" d="M1872 830 C1872 812 1884 802 1900 800 C1916 798 1930 806 1934 818 C1938 826 1936 832 1930 834 Z"/>
+    <path fill="#3F2C3A" d="M1872 830 C1880 822 1896 820 1908 824 C1918 826 1926 830 1930 834 Z"/>
+
+    <g fill="#1F3F36" color="#183229">
+      <use href="#pine" x="-36" y="610" width="76" height="190"/>
+      <use href="#pine" x="22" y="690" width="52" height="130"/>
+    </g>
+    <g fill="#0E1422" color="#0A0F1A">
+      <use href="#pine" x="2360" y="640" width="70" height="180"/>
+    </g>
+  </g>
+
+  <g id="grain">
+    <rect width="2400" height="900" filter="url(#grain-filter)" opacity="0.06" style="mix-blend-mode: multiply"/>
+  </g>
+</svg>
