@@ -27,6 +27,89 @@ export async function getActiveGroup(
   return data.active_group as unknown as ActiveGroup;
 }
 
+/** Returns every group the user belongs to, sorted by name (row security hides the rest). */
+export async function listMyGroups(
+  supabase: SupabaseClient,
+): Promise<ActiveGroup[]> {
+  const { data, error } = await supabase
+    .from("groups")
+    .select("id, name")
+    .order("name");
+
+  if (error) {
+    console.error("Could not load your groups:", error.code);
+    return [];
+  }
+
+  const groups: ActiveGroup[] = [];
+  for (const row of data) {
+    groups.push({ id: row.id, name: row.name });
+  }
+  return groups;
+}
+
+export type GroupDetails = {
+  id: string;
+  name: string;
+  inviteCode: string;
+  ownerId: string;
+};
+
+/** Returns a group's name, invite code and owner, or null if it can't be read. */
+export async function getGroupDetails(
+  supabase: SupabaseClient,
+  groupId: string,
+): Promise<GroupDetails | null> {
+  const { data, error } = await supabase
+    .from("groups")
+    .select("id, name, invite_code, owner_id")
+    .eq("id", groupId)
+    .maybeSingle();
+
+  if (error) {
+    console.error("Could not load the group:", error.code);
+    return null;
+  }
+  if (!data) {
+    return null;
+  }
+  return {
+    id: data.id,
+    name: data.name,
+    inviteCode: data.invite_code,
+    ownerId: data.owner_id,
+  };
+}
+
+export type GroupPreview = {
+  name: string;
+  memberCount: number;
+  isMember: boolean;
+};
+
+/** Looks up the group behind an invite code, or returns null if the code doesn't work. */
+export async function previewGroup(
+  supabase: SupabaseClient,
+  inviteCode: string,
+): Promise<GroupPreview | null> {
+  const { data, error } = await supabase.rpc("preview_group", {
+    code: inviteCode,
+  });
+
+  if (error) {
+    console.error("Could not preview the group:", error.message);
+    return null;
+  }
+  if (!data || data.length === 0) {
+    return null;
+  }
+  return {
+    name: data[0].name,
+    memberCount: data[0].member_count,
+    isMember: data[0].is_member,
+  };
+}
+
 export type GroupMember = {
   id: string;
   displayName: string;

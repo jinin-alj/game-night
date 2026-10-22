@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { logInSchema, signUpSchema } from "./schemas";
+import { displayNameSchema, logInSchema, signUpSchema } from "./schemas";
 
 describe("signUpSchema", () => {
   it("accepts a valid email, password and name, trimming spaces", () => {
@@ -87,5 +87,20 @@ describe("logInSchema", () => {
     });
 
     expect(result.success).toBe(false);
+  });
+});
+
+describe("displayNameSchema", () => {
+  it("trims the name", () => {
+    expect(displayNameSchema.parse("  Sam ")).toBe("Sam");
+  });
+
+  it("requires a name when editing it", () => {
+    const result = displayNameSchema.safeParse("   ");
+    expect(result.error?.issues[0].message).toBe("Enter a name.");
+  });
+
+  it("rejects names longer than 40 characters", () => {
+    expect(displayNameSchema.safeParse("a".repeat(41)).success).toBe(false);
   });
 });

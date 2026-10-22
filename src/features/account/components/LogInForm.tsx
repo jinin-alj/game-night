@@ -7,8 +7,12 @@ import { primaryButtonClassName } from "@/components/styles";
 import { logIn } from "../actions";
 import { emptyAuthFormState } from "../form-state";
 
+type LogInFormProps = {
+  joinCode: string | null;
+};
+
 /** The log-in form: email and password. */
-export function LogInForm() {
+export function LogInForm({ joinCode }: LogInFormProps) {
   const [state, formAction, isPending] = useActionState(
     logIn,
     emptyAuthFormState,
@@ -17,6 +21,7 @@ export function LogInForm() {
   return (
     <form action={formAction} noValidate className="flex flex-col gap-4">
       <FormError message={state.formError} />
+      {joinCode ? <input type="hidden" name="join" value={joinCode} /> : null}
       <TextField
         label="Email"
         name="email"

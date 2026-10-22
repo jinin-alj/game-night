@@ -7,8 +7,12 @@ import { primaryButtonClassName } from "@/components/styles";
 import { signUp } from "../actions";
 import { emptyAuthFormState } from "../form-state";
 
+type SignUpFormProps = {
+  joinCode: string | null;
+};
+
 /** The sign-up form: email, password and an optional name. */
-export function SignUpForm() {
+export function SignUpForm({ joinCode }: SignUpFormProps) {
   const [state, formAction, isPending] = useActionState(
     signUp,
     emptyAuthFormState,
@@ -17,6 +21,7 @@ export function SignUpForm() {
   return (
     <form action={formAction} noValidate className="flex flex-col gap-4">
       <FormError message={state.formError} />
+      {joinCode ? <input type="hidden" name="join" value={joinCode} /> : null}
       <TextField
         label="Email"
         name="email"

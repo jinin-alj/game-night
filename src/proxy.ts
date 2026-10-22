@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { addJoinCode, parseJoinCode } from "@/features/groups/invite-link";
 import { updateSession } from "@/lib/supabase/proxy";
 
 /** Keeps the session fresh and sends visitors to the right side of the login wall. */
@@ -8,12 +9,22 @@ export async function proxy(request: NextRequest) {
 
   const isAppPage = path === "/app" || path.startsWith("/app/");
   const isAuthPage = path === "/login" || path === "/signup";
+  // Only a well-formed invite code is carried along, never any other text.
+  const joinCode = parseJoinCode(request.nextUrl.searchParams.get("join"));
 
   if (isAppPage && !isLoggedIn) {
-    return redirectKeepingCookies("/login", request, response);
+    return redirectKeepingCookies(
+      addJoinCode("/login", joinCode),
+      request,
+      response,
+    );
   }
   if (isAuthPage && isLoggedIn) {
-    return redirectKeepingCookies("/app", request, response);
+    return redirectKeepingCookies(
+      addJoinCode("/app", joinCode),
+      request,
+      response,
+    );
   }
   return response;
 }

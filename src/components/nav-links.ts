@@ -1,6 +1,7 @@
 export const navLinks = [
   { href: "/app", label: "Nights" },
   { href: "/app/games", label: "Shelf" },
+  { href: "/app/group", label: "Group" },
 ];
 
 /** Tells whether a nav link belongs to the page at this path. */
