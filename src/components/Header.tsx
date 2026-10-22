@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LogOutButton } from "@/features/account/components/LogOutButton";
+import { DecorativeArt } from "./DecorativeArt";
 import { focusRingClassName } from "./styles";
 
 type HeaderProps = {
@@ -19,6 +20,12 @@ export function Header({ groupName }: HeaderProps) {
         </div>
         <LogOutButton />
       </div>
+      <DecorativeArt
+        src="/art/horizon-strip.svg"
+        width={2400}
+        height={180}
+        className="h-6 w-full object-cover sm:h-8"
+      />
     </header>
   );
 }
