@@ -5,6 +5,7 @@ import {
   getNextFriday,
   getTodayInMadrid,
   isRealDate,
+  weeksBetween,
 } from "./dates";
 
 describe("getTodayInMadrid", () => {
@@ -81,5 +82,21 @@ describe("formatDuration", () => {
 
   it("shows hours and minutes", () => {
     expect(formatDuration(150)).toBe("2 h 30 min");
+  });
+});
+
+describe("weeksBetween", () => {
+  it("counts whole weeks", () => {
+    expect(weeksBetween("2026-10-08", "2026-10-22")).toBe(2);
+    expect(weeksBetween("2026-01-01", "2026-10-22")).toBe(42);
+  });
+
+  it("is 0 within the same week", () => {
+    expect(weeksBetween("2026-10-16", "2026-10-22")).toBe(0);
+    expect(weeksBetween("2026-10-22", "2026-10-22")).toBe(0);
+  });
+
+  it("is never negative", () => {
+    expect(weeksBetween("2026-10-29", "2026-10-22")).toBe(0);
   });
 });
