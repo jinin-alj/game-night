@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { LogOutButton } from "@/features/account/components/LogOutButton";
+import { AppNav } from "./AppNav";
 import { DecorativeArt } from "./DecorativeArt";
 import { focusRingClassName } from "./styles";
 
@@ -18,6 +19,7 @@ export function Header({ groupName }: HeaderProps) {
           </Link>
           {groupName ? <p className="truncate text-sm">{groupName}</p> : null}
         </div>
+        <AppNav variant="top" />
         <LogOutButton />
       </div>
       <DecorativeArt
