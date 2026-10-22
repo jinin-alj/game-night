@@ -3,6 +3,8 @@ import { JoinPrompt } from "@/features/groups/components/JoinPrompt";
 import { parseJoinCode } from "@/features/groups/invite-link";
 import { getActiveGroup, previewGroup } from "@/features/groups/queries";
 import { CreateNightForm } from "@/features/nights/components/CreateNightForm";
+import { RatePrompt } from "@/features/ratings/components/RatePrompt";
+import { listGamesToRate } from "@/features/ratings/queries";
 import { NightList } from "@/features/nights/components/NightList";
 import { listNights } from "@/features/nights/queries";
 import { getNextFriday, getTodayInMadrid } from "@/lib/dates";
@@ -36,11 +38,13 @@ export default async function AppHomePage({ searchParams }: PageProps<"/app">) {
   }
 
   const nights = await listNights(supabase, activeGroup.id);
+  const gamesToRate = await listGamesToRate(supabase, activeGroup.id, userId);
   const today = getTodayInMadrid();
 
   return (
     <div className="flex flex-col gap-8">
       {joinPrompt}
+      <RatePrompt gamesToRate={gamesToRate} />
       <h1 className="text-2xl font-bold">Your game nights</h1>
       <CreateNightForm defaultNightDate={getNextFriday(today)} />
       {nights === null ? (

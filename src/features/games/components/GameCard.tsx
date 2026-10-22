@@ -7,6 +7,7 @@ import {
   secondaryButtonClassName,
 } from "@/components/styles";
 import type { GroupMember } from "@/features/groups/queries";
+import { RatingForm } from "@/features/ratings/components/RatingForm";
 import { formatDuration } from "@/lib/dates";
 import { deleteGame, updateGame } from "../actions";
 import { toGameFormValues } from "../form-state";
@@ -18,10 +19,11 @@ type GameCardProps = {
   game: Game;
   ownerName: string | null;
   members: GroupMember[];
+  myScore: number | null;
 };
 
 /** One game on the shelf, with Edit and Delete happening right on the card. */
-export function GameCard({ game, ownerName, members }: GameCardProps) {
+export function GameCard({ game, ownerName, members, myScore }: GameCardProps) {
   const [mode, setMode] = useState<"view" | "edit" | "confirm-delete">("view");
   const [deleteState, deleteAction, isDeleting] = useActionState(
     deleteGame,
@@ -87,6 +89,17 @@ export function GameCard({ game, ownerName, members }: GameCardProps) {
           {formatDuration(game.playtimeMinutes)}
         </p>
         {ownerName ? <p className="text-sm">{ownerName}’s copy</p> : null}
+        <p className="text-sm">
+          {myScore === null ? "Not rated yet" : `Your rating: ${myScore}/10`}
+        </p>
+        <div className="mt-2">
+          <RatingForm
+            formId={`shelf-${game.id}`}
+            gameId={game.id}
+            label={`Rate ${game.title}`}
+            currentScore={myScore}
+          />
+        </div>
       </div>
       <div className="flex shrink-0 gap-2">
         <button
