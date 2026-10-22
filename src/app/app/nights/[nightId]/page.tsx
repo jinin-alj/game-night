@@ -25,6 +25,7 @@ import {
 } from "@/features/plays/queries";
 import { formatDuration, formatNightDate, getTodayInMadrid } from "@/lib/dates";
 import { planNight } from "@/lib/planner/planner";
+import { listGroupRatings } from "@/features/ratings/queries";
 
 export const metadata: Metadata = {
   title: "Night · Game Night Planner",
@@ -59,13 +60,15 @@ export default async function NightPage({
     supabase,
     night.groupId,
   );
+  const ratings = await listGroupRatings(supabase, night.groupId);
   if (
     !members ||
     !attendeeIds ||
     !guests ||
     !games ||
     !plays ||
-    !lastPlayedDates
+    !lastPlayedDates ||
+    !ratings
   ) {
     return (
       <p role="alert" className="text-canyon-dark">
@@ -91,8 +94,7 @@ export default async function NightPage({
         attendeeIds,
         guestCount: guests.length,
         availableMinutes: night.availableMinutes,
-        // TODO: milestone 7 passes the group's real ratings here.
-        ratings: [],
+        ratings,
         lastPlayedDates,
         today,
       })

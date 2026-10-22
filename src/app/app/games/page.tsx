@@ -4,6 +4,7 @@ import { GameCard } from "@/features/games/components/GameCard";
 import { listGames } from "@/features/games/queries";
 import { listGroupMembers } from "@/features/groups/queries";
 import { getSessionContext } from "@/features/groups/session";
+import { listMyRatings } from "@/features/ratings/queries";
 
 export const metadata: Metadata = {
   title: "Shelf · Game Night Planner",
@@ -11,14 +12,15 @@ export const metadata: Metadata = {
 
 /** The shelf: every game the active group owns, with add, edit and delete. */
 export default async function ShelfPage() {
-  const { supabase, activeGroup } = await getSessionContext();
+  const { supabase, userId, activeGroup } = await getSessionContext();
   if (!activeGroup) {
     return <p>You aren’t in a group yet, so there is no shelf to show.</p>;
   }
 
   const games = await listGames(supabase, activeGroup.id);
   const members = await listGroupMembers(supabase, activeGroup.id);
-  if (games === null || members === null) {
+  const myRatings = await listMyRatings(supabase, activeGroup.id, userId);
+  if (games === null || members === null || myRatings === null) {
     return (
       <p role="alert" className="text-canyon-dark">
         Couldn’t load your shelf. Refresh the page to try again.
@@ -56,6 +58,7 @@ export default async function ShelfPage() {
                   : null
               }
               members={members}
+              myScore={myRatings[game.id] ?? null}
             />
           ))}
         </ul>
