@@ -1,9 +1,40 @@
-/** The main page for logged-in users; game nights arrive in milestone 2. */
-export default function AppHomePage() {
+import { redirect } from "next/navigation";
+import { getActiveGroup } from "@/features/groups/queries";
+import { CreateNightForm } from "@/features/nights/components/CreateNightForm";
+import { NightList } from "@/features/nights/components/NightList";
+import { listNights } from "@/features/nights/queries";
+import { getNextFriday, getTodayInMadrid } from "@/lib/dates";
+import { createClient, getCurrentUserId } from "@/lib/supabase/server";
+
+/** The main page for logged-in users: create a game night and see the group's nights. */
+export default async function AppHomePage() {
+  const supabase = await createClient();
+  const userId = await getCurrentUserId(supabase);
+  if (!userId) {
+    redirect("/login");
+  }
+
+  const activeGroup = await getActiveGroup(supabase, userId);
+  if (!activeGroup) {
+    return (
+      <p>You aren’t in a group yet, so there are no game nights to show.</p>
+    );
+  }
+
+  const nights = await listNights(supabase, activeGroup.id);
+  const today = getTodayInMadrid();
+
   return (
-    <section>
+    <div className="flex flex-col gap-8">
       <h1 className="text-2xl font-bold">Your game nights</h1>
-      <p className="mt-2">Your game nights will appear here.</p>
-    </section>
+      <CreateNightForm defaultNightDate={getNextFriday(today)} />
+      {nights === null ? (
+        <p role="alert" className="text-canyon-dark">
+          Couldn’t load your game nights. Refresh the page to try again.
+        </p>
+      ) : (
+        <NightList nights={nights} today={today} />
+      )}
+    </div>
   );
 }
