@@ -1,3 +1,4 @@
+import { DecorativeArt } from "@/components/DecorativeArt";
 import { formatDuration, formatNightDate } from "@/lib/dates";
 import { splitNights } from "../split";
 import type { NightSummary } from "../types";
@@ -45,13 +46,21 @@ function NightSection({ title, nights }: NightSectionProps) {
           <li
             key={night.id}
             data-testid="core-item"
-            className="rounded-2xl bg-paper-light p-4"
+            className="flex items-center gap-3 rounded-2xl bg-paper-light p-3"
           >
-            <p className="font-semibold break-words">{night.name}</p>
-            <p className="text-sm">
-              {formatNightDate(night.nightDate)} ·{" "}
-              {formatDuration(night.availableMinutes)}
-            </p>
+            <DecorativeArt
+              src="/art/zone-4.svg"
+              width={56}
+              height={56}
+              className="h-14 w-14 shrink-0 rounded-lg"
+            />
+            <div className="min-w-0">
+              <p className="font-semibold break-words">{night.name}</p>
+              <p className="text-sm">
+                {formatNightDate(night.nightDate)} ·{" "}
+                {formatDuration(night.availableMinutes)}
+              </p>
+            </div>
           </li>
         ))}
       </ul>
