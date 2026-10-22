@@ -19,4 +19,10 @@ describe("isActiveLink", () => {
   it("does not mark Shelf active on /app", () => {
     expect(isActiveLink("/app", "/app/games")).toBe(false);
   });
+
+  it("marks Group active on /app/group only", () => {
+    expect(isActiveLink("/app/group", "/app/group")).toBe(true);
+    expect(isActiveLink("/app", "/app/group")).toBe(false);
+    expect(isActiveLink("/app/group", "/app")).toBe(false);
+  });
 });
