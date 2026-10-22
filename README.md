@@ -27,7 +27,9 @@ Game Night Planner helps students who host weekly board game nights pick what to
 
    **NEVER COMMIT `.env.local`, AND NEVER USE THE SECRET / SERVICE_ROLE KEY.** Only the URL and the publishable key are used.
 
-3. Start the dev server and open http://localhost:3000:
+3. Set up the database: in Supabase open **SQL Editor → New query**, then paste and run each file in `supabase/migrations/` in number order (`0001_…`, `0002_…`, `0003_…`). In **Authentication → Sign In / Providers → Email**, keep Email on and turn **Confirm email** off.
+
+4. Start the dev server and open http://localhost:3000:
 
    ```bash
    npm run dev
