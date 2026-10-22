@@ -1,8 +1,7 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import type { ZodError } from "zod";
-import { getFormText } from "@/lib/forms";
+import { getFirstFieldErrors, getFormText } from "@/lib/forms";
 import { createClient } from "@/lib/supabase/server";
 import { toFriendlyAuthError } from "./errors";
 import type { AuthFormState } from "./form-state";
@@ -80,21 +79,4 @@ export async function logOut() {
   }
 
   redirect("/");
-}
-
-function getFirstFieldErrors(error: ZodError): AuthFormState["fieldErrors"] {
-  const fieldErrors: AuthFormState["fieldErrors"] = {};
-  for (const issue of error.issues) {
-    const fieldName = issue.path[0];
-    if (
-      fieldName === "email" ||
-      fieldName === "password" ||
-      fieldName === "displayName"
-    ) {
-      if (!fieldErrors[fieldName]) {
-        fieldErrors[fieldName] = issue.message;
-      }
-    }
-  }
-  return fieldErrors;
 }
