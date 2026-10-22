@@ -23,3 +23,13 @@ export const createNightSchema = z.object({
     .max(MAX_NIGHT_MINUTES, { error: nightLengthError })
     .multipleOf(NIGHT_MINUTES_STEP, { error: nightLengthError }),
 });
+
+export const nightIdSchema = z.uuid();
+
+export const guestNameSchema = z
+  .string()
+  .trim()
+  .min(1, { error: "Enter the guest’s name." })
+  .max(40, { error: "Use 40 characters or fewer." });
+
+export const attendeeIdsSchema = z.array(z.uuid());
