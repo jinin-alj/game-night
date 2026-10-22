@@ -1,0 +1,25 @@
+# Private project docs and AI instructions
+docs/
+CLAUDE.md
+.claude/
+
+# Environment files
+.env*
+
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Test coverage
+coverage/
+
+# Vercel
+.vercel
+
+# macOS
+.DS_Store
