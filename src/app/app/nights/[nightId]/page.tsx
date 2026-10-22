@@ -18,6 +18,11 @@ import {
   listGuests,
 } from "@/features/nights/queries";
 import { nightIdSchema } from "@/features/nights/schemas";
+import { PlaysSection } from "@/features/plays/components/PlaysSection";
+import {
+  getGroupLastPlayedDates,
+  listPlaysForNight,
+} from "@/features/plays/queries";
 import { formatDuration, formatNightDate, getTodayInMadrid } from "@/lib/dates";
 import { planNight } from "@/lib/planner/planner";
 
@@ -49,12 +54,34 @@ export default async function NightPage({
   const attendeeIds = await listAttendeeIds(supabase, night.id);
   const guests = await listGuests(supabase, night.id);
   const games = await listGames(supabase, night.groupId);
-  if (!members || !attendeeIds || !guests || !games) {
+  const plays = await listPlaysForNight(supabase, night.id);
+  const lastPlayedDates = await getGroupLastPlayedDates(
+    supabase,
+    night.groupId,
+  );
+  if (
+    !members ||
+    !attendeeIds ||
+    !guests ||
+    !games ||
+    !plays ||
+    !lastPlayedDates
+  ) {
     return (
       <p role="alert" className="text-canyon-dark">
         Couldn’t load this night. Refresh the page to try again.
       </p>
     );
+  }
+
+  const today = getTodayInMadrid();
+  // Plays can only be logged on the night itself or later.
+  const canLogPlays = night.nightDate <= today;
+  const loggedGameIds: string[] = [];
+  for (const play of plays) {
+    if (play.gameId) {
+      loggedGameIds.push(play.gameId);
+    }
   }
 
   const showLineup = plan === "1";
@@ -66,9 +93,8 @@ export default async function NightPage({
         availableMinutes: night.availableMinutes,
         // TODO: milestone 7 passes the group's real ratings here.
         ratings: [],
-        // TODO: milestone 6 passes the date each game was last played here.
-        lastPlayedDates: {},
-        today: getTodayInMadrid(),
+        lastPlayedDates,
+        today,
       })
     : null;
 
@@ -115,8 +141,21 @@ export default async function NightPage({
             lineup={lineup}
             attendeeCount={attendeeIds.length}
             availableMinutes={night.availableMinutes}
+            nightId={night.id}
+            canLogPlays={canLogPlays}
+            loggedGameIds={loggedGameIds}
           />
         ) : null}
+      </NightSection>
+
+      <NightSection id="played" title="Played this night">
+        <PlaysSection
+          nightId={night.id}
+          plays={plays}
+          games={games}
+          canLogPlays={canLogPlays}
+          firstDayText={formatNightDate(night.nightDate)}
+        />
       </NightSection>
 
       <ConfirmActionButton
