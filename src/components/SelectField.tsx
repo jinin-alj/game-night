@@ -9,6 +9,7 @@ type SelectFieldProps = {
   label: string;
   name: string;
   options: SelectOption[];
+  id?: string;
   defaultValue?: string;
   error?: string;
 };
@@ -18,18 +19,20 @@ export function SelectField({
   label,
   name,
   options,
+  id,
   defaultValue,
   error,
 }: SelectFieldProps) {
-  const errorId = `${name}-error`;
+  const selectId = id ?? name;
+  const errorId = `${selectId}-error`;
 
   return (
     <div className="flex flex-col gap-1">
-      <label htmlFor={name} className="font-medium">
+      <label htmlFor={selectId} className="font-medium">
         {label}
       </label>
       <select
-        id={name}
+        id={selectId}
         name={name}
         defaultValue={defaultValue}
         aria-invalid={error ? true : undefined}
