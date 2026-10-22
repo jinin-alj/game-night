@@ -2,8 +2,6 @@
 
 Game Night Planner helps students who host weekly board game nights pick what to play so they fill the night with games that fit who's coming and how much time they have.
 
-> **Status:** milestone 0
-
 ## Requirements
 
 - Node.js 20.9 or newer (the project pins Node 24 in `.nvmrc`; run `nvm use` if you use nvm)

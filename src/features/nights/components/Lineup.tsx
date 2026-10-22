@@ -1,17 +1,24 @@
 import { formatDuration } from "@/lib/dates";
+import { PlayButton } from "@/features/plays/components/PlayButton";
 import type { Lineup as PlannedLineup } from "@/lib/planner/planner";
 
 type LineupProps = {
   lineup: PlannedLineup;
   attendeeCount: number;
   availableMinutes: number;
+  nightId: string;
+  canLogPlays: boolean;
+  loggedGameIds: string[];
 };
 
-/** The planned games for the night, with the minutes used and left and a reason for each. */
+/** The planned games for the night, with minutes used and left, reasons, and "We played this". */
 export function Lineup({
   lineup,
   attendeeCount,
   availableMinutes,
+  nightId,
+  canLogPlays,
+  loggedGameIds,
 }: LineupProps) {
   if (attendeeCount === 0) {
     return <p>Tick at least one member who’s coming, then plan.</p>;
@@ -54,6 +61,20 @@ export function Lineup({
                 {pick.title} · {formatDuration(pick.playtimeMinutes)}
               </p>
               <p className="text-sm">{pick.reasons.join(" · ")}</p>
+              {canLogPlays && loggedGameIds.includes(pick.gameId) ? (
+                <p className="mt-2 text-sm font-semibold text-pine">
+                  Logged as played
+                </p>
+              ) : null}
+              {canLogPlays && !loggedGameIds.includes(pick.gameId) ? (
+                <div className="mt-2">
+                  <PlayButton
+                    nightId={nightId}
+                    gameId={pick.gameId}
+                    gameTitle={pick.title}
+                  />
+                </div>
+              ) : null}
             </div>
           </li>
         ))}
