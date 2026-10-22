@@ -16,7 +16,7 @@ export function Header({ activeGroup, myGroups }: HeaderProps) {
   return (
     <header className="border-b border-ink/15 bg-paper-light">
       <div className="mx-auto flex w-full max-w-3xl items-center justify-between gap-3 px-4 py-3">
-        <div className="min-w-0">
+        <div className="min-w-0 flex-1">
           <Link href="/app" className={`font-bold ${focusRingClassName}`}>
             Game Night Planner
           </Link>

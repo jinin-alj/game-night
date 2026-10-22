@@ -33,7 +33,7 @@ export function GroupSwitcher({ groups, activeGroupId }: GroupSwitcherProps) {
         // Picking a group submits right away; the hint below warns screen-reader users first.
         onChange={() => formRef.current?.requestSubmit()}
         aria-describedby="group-switcher-hint"
-        className={`max-w-full rounded-lg border border-ink/60 bg-paper-light px-2 py-1 text-sm ${focusRingClassName}`}
+        className={`w-full max-w-xs rounded-lg border border-ink/60 bg-paper-light px-2 py-1 text-sm ${focusRingClassName}`}
       >
         {groups.map((group) => (
           <option key={group.id} value={group.id}>
