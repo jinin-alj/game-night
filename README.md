@@ -2,8 +2,8 @@
 
 Game Night Planner helps students who host weekly board game nights pick what to play so they fill the night with games that fit who's coming and how much time they have.
 
-- **Live app:** https://game-night-planner-zeta.vercel.app
 - **Author:** Jinin Aljayyousi
+- **Live app:** https://game-night-planner-zeta.vercel.app
 
 ## What it does
 
