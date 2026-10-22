@@ -3,7 +3,7 @@ import { focusRingClassName } from "./styles";
 type TextFieldProps = {
   label: string;
   name: string;
-  type: "text" | "email" | "password";
+  type: "text" | "email" | "password" | "date";
   autoComplete: string;
   testId?: string;
   defaultValue?: string;
